@@ -1,0 +1,11 @@
+﻿<template>
+    <lightning-card title="Care Team">
+        <div class="slds-p-horizontal_medium slds-p-bottom_medium">
+            <template if:false={hasTeam}><p>No care team assigned.</p></template>
+            <template for:each={careTeam} for:item="m">
+                <p key={m.Id}><strong>{m.Clinician_Name__c}</strong><br/>
+                    <span class="slds-text-body_small">{m.Role__c}</span></p>
+            </template>
+        </div>
+    </lightning-card>
+</template>

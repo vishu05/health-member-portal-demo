@@ -1,0 +1,32 @@
+﻿<template>
+    <lightning-card title="Member Dashboard (demo - synthetic data)" icon-name="standard:person_account">
+        <div class="slds-p-around_medium">
+            <template if:true={hasError}>
+                <p class="slds-text-color_error">Unable to load member dashboard.</p>
+            </template>
+            <template if:true={member}>
+                <h2 class="slds-text-heading_medium">{member.Name}</h2>
+                <p class="slds-text-body_small">
+                    Member {member.Member_Number__c} | {member.Plan_Name__c}
+                </p>
+                <p class="slds-m-top_small">
+                    Total billed this year:
+                    <lightning-formatted-number value={totalBilled}
+                        format-style="currency" currency-code="USD">
+                    </lightning-formatted-number>
+                </p>
+                <div class="slds-grid slds-wrap slds-gutters slds-m-top_medium">
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-3">
+                        <c-coverage-card coverages={coverages}></c-coverage-card>
+                    </div>
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-3">
+                        <c-claims-list claims={claims}></c-claims-list>
+                    </div>
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-3">
+                        <c-care-team-list care-team={careTeam}></c-care-team-list>
+                    </div>
+                </div>
+            </template>
+        </div>
+    </lightning-card>
+</template>

@@ -1,0 +1,11 @@
+﻿<template>
+    <lightning-card title="Recent Claims">
+        <div class="slds-p-horizontal_medium slds-p-bottom_medium">
+            <template if:false={hasClaims}><p>No claims yet.</p></template>
+            <template for:each={claims} for:item="c">
+                <p key={c.Id}><strong>{c.Name}</strong> - {c.Claim_Status__c}
+                    <br/><span class="slds-text-body_small">{c.Provider_Name__c} | {c.Service_Date__c}</span></p>
+            </template>
+        </div>
+    </lightning-card>
+</template>

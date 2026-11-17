@@ -1,0 +1,11 @@
+﻿<template>
+    <lightning-card title="Coverage">
+        <div class="slds-p-horizontal_medium slds-p-bottom_medium">
+            <template if:false={hasCoverages}><p>No coverage on file.</p></template>
+            <template for:each={coverages} for:item="c">
+                <p key={c.Id}><strong>{c.Coverage_Type__c}</strong> - {c.Status__c}
+                    <br/><span class="slds-text-body_small">From {c.Effective_Date__c}</span></p>
+            </template>
+        </div>
+    </lightning-card>
+</template>
